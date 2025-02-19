@@ -7,13 +7,14 @@ import json
 
 class DevCommands(commands.Cog):
     '''These are the developer commands'''
+
     def __init__(self, bot):
         self.bot = bot
 
     async def cog_check(self, ctx):
         '''
-		The default check for this cog whenever a command is used. Returns True if the command is allowed.
-		'''
+                The default check for this cog whenever a command is used. Returns True if the command is allowed.
+                '''
         return ctx.author.id == self.bot.author_id
 
     @commands.command(  # Decorator to declare where a command is.
@@ -22,8 +23,8 @@ class DevCommands(commands.Cog):
     )
     async def reload(self, ctx, cog):
         '''
-		Reloads a cog.
-		'''
+                Reloads a cog.
+                '''
         extensions = self.bot.extensions  # A list of the bot's cogs/extensions.
         if cog == 'all':  # Lets you reload all cogs at once
             for extension in extensions:
@@ -40,8 +41,8 @@ class DevCommands(commands.Cog):
     @commands.command(name="unload", aliases=['ul'])
     async def unload(self, ctx, cog):
         '''
-		Unload a cog.
-		'''
+                Unload a cog.
+                '''
         extensions = self.bot.extensions
         if cog not in extensions:
             await ctx.send("Cog is not loaded!")
@@ -52,8 +53,8 @@ class DevCommands(commands.Cog):
     @commands.command(name="load")
     async def load(self, ctx, cog):
         '''
-		Loads a cog.
-		'''
+                Loads a cog.
+                '''
         try:
 
             self.bot.load_extension(cog)
@@ -65,8 +66,8 @@ class DevCommands(commands.Cog):
     @commands.command(name="listcogs", aliases=['lc'])
     async def listcogs(self, ctx):
         '''
-		Returns a list of all enabled commands.
-		'''
+                Returns a list of all enabled commands.
+                '''
         base_string = "```css\n"  # Gives some styling to the list (on pc side)
         base_string += "\n".join([str(cog) for cog in self.bot.extensions])
         base_string += "\n```"
@@ -129,9 +130,9 @@ class DevCommands(commands.Cog):
         content = json.load(word_list)
         format_content = ''
         for x in content:
-            if x not in ["Total Card Tzar Mentions", "Fuck you Card Tzar"]:
+            if x not in ["Total Card Tzar Mentions"]:
                 format_content += f'{x}: {content[x]:,}\n'
-        format_content += f'F*** you Card Tzar: {content["Fuck you Card Tzar"]:,}\nTotal Card Tzar Mentions: {content["Total Card Tzar Mentions"]:,}'
+        format_content += f'Total Card Tzar Mentions: {content["Total Card Tzar Mentions"]:,}'
         await ctx.send(f'''```yaml
 {format_content}```''')
 

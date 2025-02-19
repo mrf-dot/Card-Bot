@@ -4,6 +4,7 @@ from discord.ext import commands
 
 class Rules(commands.Cog):
     '''The rules of the server'''
+
     def __init__(self, bot):
         self.bot = bot
         self.rule_list = {
@@ -11,20 +12,6 @@ class Rules(commands.Cog):
             'No doxxing or harassment (especially threats on someone’s life/property) or encouraging self harm.',
             'spam':
             'No spamming, phishing, or attempting to steal another user’s account (broadly speaking, one could consider this “no spamming or scamming.”)',
-            'porn':
-            'No child porn, revenge porn or gore/animal cruelty anywhere in the server, while other NSFW content should be limited to properly marked channels.',
-            'pirating':
-            'No sharing pirated content.',
-            'trolling':
-            'No disrupting the chat, making a nuisance out of yourself, deliberately making others uncomfortable, or otherwise attempting to start trouble.',
-            'elitism':
-            'Refrain from insulting or belittling others based on the games or versions of games that they choose to play.',
-            'discrimination':
-            'Discriminatory jokes and language related to one’s race, age, gender, disability, etc. are prohibited.',
-            'incitement':
-            'Encouraging the breaking of rules, inciting others to be blatantly rude and offensive, or otherwise promoting and/or encouraging conflicts between other members is prohibited.',
-            'enforcement':
-            'User bans and appeals will be dealt with on a case by case basis.  That being said, the mods will have a final say in all matters.  If you believe someone has broken a rule, ping @Mod.',
         }
 
     async def cog_check(self, ctx):
