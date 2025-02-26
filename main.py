@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from routines.neverSleep import awake
 from routines.call_news import call_news
 import os
